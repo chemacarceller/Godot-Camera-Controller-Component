@@ -1,4 +1,4 @@
-# GODOT-Camera-Controller-Component
+# Godot-Camera-Controller-Component
 
 It consists of a root Node3D containing an attached SpringArm3D node, which in turn contains an attached Camera3D node. 
 
