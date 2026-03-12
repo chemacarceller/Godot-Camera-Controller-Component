@@ -4,9 +4,7 @@ It consists of a root Node3D containing an attached SpringArm3D node, which in t
 
 This component, in its associated script, has a multitude of configurable parameters based on different configuration modes.
 
-The demo folder contains an example of usage of this component
-
-Also this component has been tested in https://jocarpe.itch.io/third-person-character-demo
+This component has been tested in https://jocarpe.itch.io/third-person-character-demo
 
 This is a demo in continuous development to test all the components developed and in the process of future development. 
 
