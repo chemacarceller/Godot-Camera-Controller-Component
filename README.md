@@ -12,6 +12,8 @@ It also adds the ability to change characters and view resource consumption via 
 
 A detailed explanation of how the demo works is available on the itch.io page indicated. 
 
+The code for this demo is available at : [Third Person Character Demo](https://github.com/chemacarceller/Godot-Third-Person-Character-Demo) 
+
 Feel free to check it out in either of its two versions, Windows or Linux.
 
 ==========================================================================
@@ -27,5 +29,7 @@ This is a demo in continuous development to test all the components developed an
 A detailed explanation of how the demo works is available on the itch.io page indicated.
 
 Feel free to check it out in either of its two versions, Windows or Linux.
+
+El código de esta demo lo tienes disponible en : [Third Person Character Demo](https://github.com/chemacarceller/Godot-Third-Person-Character-Demo)
 
 The same demo is available for First Person Character in https://jocarpe.itch.io/godots-first-person
