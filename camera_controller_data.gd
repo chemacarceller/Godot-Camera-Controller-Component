@@ -1,4 +1,4 @@
-class_name CameraControllerData extends Node
+class_name CameraControllerData extends RefCounted
 
 # Camera Controller Data
 var cameraControllerRotation : Vector3 = Vector3.ZERO

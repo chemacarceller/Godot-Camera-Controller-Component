@@ -2,13 +2,13 @@
 
 
 # Property to activate or deactivate the controller component for example when the game is paused
-@export var _isEnabled : bool = true
+@export var _IsEnabled : bool = true
 
 func set_IsEnabled(value : bool) -> void :
-	_isEnabled = value
+	_IsEnabled = value
 
 func get_IsEnebled() -> bool :
-	return _isEnabled
+	return _IsEnabled
 
 # =============================================== ENUMS =====================================================
 
@@ -277,11 +277,9 @@ var _rightButtonPressed : bool = false
 
 # BUILT-IN METHODS ======================================================================================
 
-
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		_spring_arm = null
-		_camera3D = null
+		queue_free()
 
 func _ready() -> void:
 	# Fixing the camera controller from its initial values
@@ -309,7 +307,7 @@ func _ready() -> void:
 # The camera3d rotation and movement up down via right - middle button clicked and mouse move
 func _input(event):
 	# Only if it is enabled
-	if _isEnabled and _spring_arm != null and _camera3D != null :
+	if _IsEnabled and _spring_arm != null and _camera3D != null :
 		
 		# Mouse input -> Travelling
 		if event is InputEventMouseButton:
@@ -382,7 +380,7 @@ func _input(event):
 # framesNum = 1 / deltaTime
 func doing_cameraTransition(cameraMovement : CAMERA_MOVEMENT, initialValue: float, finalValue: float, framesNum : int):
 	# Only if it is enabled
-	if _isEnabled:
+	if _IsEnabled:
 		# if framesNum is less than 1 the movement is done and returns
 		if framesNum < 1:
 			match cameraMovement:
@@ -458,7 +456,7 @@ func doing_cameraTransition(cameraMovement : CAMERA_MOVEMENT, initialValue: floa
 # Function that carries out the actions when changes the cameraMode
 func change_cameraMode(value : CAMERA_MODE):
 	# Only if it is enabled
-	if _isEnabled :
+	if _IsEnabled :
 		
 		# Clamp rotations between -PI and PI, some are not strictly necessary because they are already clamped
 		while(rotation.y > PI) : rotation.y -= 2*PI
@@ -564,7 +562,7 @@ func change_cameraMode(value : CAMERA_MODE):
 # The CameraControllerData object is used stores in the camera_controller_data.gd script
 func get_context() -> CameraControllerData :
 	# Only if it is enabled
-	if _isEnabled :
+	if _IsEnabled :
 		var context = CameraControllerData.new()
 		context.cameraControllerRotation = rotation
 		context.cameraControllerPosition = position
@@ -591,7 +589,7 @@ func get_context() -> CameraControllerData :
 # Sets the camera controller component's context for character's
 func set_context(context : CameraControllerData) -> void:
 	# Only if it is enabled
-	if _isEnabled and context != null :
+	if _IsEnabled and context != null :
 		rotation = context.cameraControllerRotation
 		position = context.cameraControllerPosition
 		get_node("SpringArm3D/Camera3D").rotation = context.cameraRotation
@@ -638,7 +636,6 @@ func set_rightButtonPressed( value : bool):
 # Basically disables in the editor the options not able to be configured in a specific cameraMode
 # Also if a camera movement is explicitly disabled it hides the range associated to this option
 func _validate_property(property: Dictionary):
-
 
 	if property.name in ["zoomInitialValue"] and cameraMode == CAMERA_MODE.FIRST_PERSON:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
